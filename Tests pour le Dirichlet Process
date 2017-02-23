@@ -45,27 +45,6 @@ Tant qu'on augmente alpha , on augmente le nombre de tables distinctes.
 
 Tests pour le Black MacQueen urn scheme :
 
-j'ai modifié l'algorithme en mettant une distribution gaussienne unitaire des couleurs distinctes:
-
-def Black_MacQueen_urn_Scheme(couleurs,nbrBalls,alpha):
-    #couleurs=[]
-    for i in range (nbrBalls-1):
-        couleurs.append(i)
-    if nbrBalls<=0:
-        return []
-    balls_dans_urne=[0.05]
-    for i in range (nbrBalls-1):
-        if random()<alpha/(alpha+i):
-            balls_dans_urne.append(scipy.stats.norm.pdf(i,0,1))
-            print(balls_dans_urne)
-        else:
-            choisir_ball=choice(balls_dans_urne)
-            balls_dans_urne.append(choisir_ball)
-            print(balls_dans_urne)
-    return balls_dans_urne
-    
-Les tests :
-
 y = Black_MacQueen_urn_Scheme([],10,2)
 N = len(y)
 x = range(N)
@@ -82,7 +61,7 @@ plt.bar(x, y, width, color="blue")
 [0.5, 0.3989422804014327, 0.24197072451914337, 0.053990966513188063, 0.24197072451914337, 0.053990966513188063, 0.24197072451914337, 0.5, 0.053990966513188063]
 [0.5, 0.3989422804014327, 0.24197072451914337, 0.053990966513188063, 0.24197072451914337, 0.053990966513188063, 0.24197072451914337, 0.5, 0.053990966513188063, 0.24197072451914337]
 
-Graphe 1 dans le fichier des graphe_Tests
+Graphe 1 dans le fichier des graphe_Tests : Le graphe donne un résultat sur plusieurs gaussiennes , dû au choix d'une distibution gaussienne des couleurs uniques.
 
 Tests pour le Stick_Breaking:
 
