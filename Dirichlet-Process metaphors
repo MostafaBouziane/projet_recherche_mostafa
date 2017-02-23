@@ -19,16 +19,13 @@ def chinese_restaurant_process(nbClient, alpha):
     return numero_table
     
     
-def Black_MacQueen_urn_Scheme(couleurs,nbrBalls,alpha):
-    #couleurs=[]
-    for i in range (nbrBalls-1):
-        couleurs.append(i)
+def Black_MacQueen_urn_Scheme(nbrBalls,alpha):
     if nbrBalls<=0:
         return []
     balls_dans_urne=[0.5]
     for i in range (nbrBalls-1):
         if random()<alpha/(alpha+i):
-            balls_dans_urne.append(couleurs[i])
+            balls_dans_urne.append(scipy.stats.norm.pdf(i,0,1))
             print(balls_dans_urne)
         else:
             choisir_ball=choice(balls_dans_urne)
@@ -36,18 +33,13 @@ def Black_MacQueen_urn_Scheme(couleurs,nbrBalls,alpha):
             print(balls_dans_urne)
     return balls_dans_urne
     
-    import matplotlib.pyplot as plt
-from scipy.stats import beta
-#remaining_stick_lengths = c(1, cumprod(1 - betas))[1:num_weights]
+
 def Stick_breaking(nbrsSticks,alpha):
     a=1
     weights=[a]
-    
     betas = beta.rvs(1, alpha,size=nbrsSticks)
     for i in range(nbrsSticks-1):
-        
         for j in range(i+1):
-            
             a=a*(1-betas[j+1])
         a=a*betas[i]
         weights.append(a)
