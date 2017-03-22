@@ -3,7 +3,7 @@ import math
 from random import random
 from math import exp
 
-------------------------------- fonctions nécessaires pour l'échantillonage de Gibbs et le calcul du logarithme de vraisemblance---------------
+#------------------------------- fonctions nécessaires pour l'échantillonage de Gibbs et le calcul du logarithme de vraisemblance---------------#
 
 def tirage_multinomiale(x):
     a=random()
@@ -32,7 +32,7 @@ def maj_of_Params(donne):
     return p
     
     
-  -------------------------------------L'algorithme Principale: échantillonage de Gibbs et processus de Dirichlet------------------------------
+  #------------------------------------L'algorithme Principale: échantillonage de Gibbs et processus de Dirichlet------------------------------#
   
   
 def Dirichlet_vs_Gibbs(data,alpha,iterations):
