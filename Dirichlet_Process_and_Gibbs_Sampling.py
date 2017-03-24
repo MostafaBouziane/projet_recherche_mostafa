@@ -104,6 +104,7 @@ def Dirichlet_vs_Gibbs(data,alpha,iterations):
            for r in range(len(np.array(data)[:,0])):
                v=v+LikeHood_Log(eta[clusters[r]],data[r])
            if v>MaxLikeHood:
+              MaxLikeHood=v
               LikeHoodClusters=clusters
     else:
         LikeHoodClusters =clusters
