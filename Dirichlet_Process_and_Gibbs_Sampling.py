@@ -13,6 +13,8 @@ def tirage_multinomiale(x):
         if a<b :
             break
     return i
+
+
 def LikeHood_Log(p,data):
     logv=0
     for i in range (len(data)):
@@ -21,16 +23,27 @@ def LikeHood_Log(p,data):
         logv=logv- 0.5 * math.log(s) - (data[i] - m)**2/(2*s)
     return logv
 
+
 def maj_of_Params(donne):
+    """
+        Input:
+            - donne : N'xD matrix, with D the dataset size, and N' the number
+            of observations of the current cluster
+        Output:
+            - p is a list of D lists, where D is the ambiant dimension, and
+            each of the D element is a two components list composed of
+            the mean of the dataset and its standard deviation.
+            $[[\mu1, \sigma1], [\mu2, \sigma2], \dots]$
+    """
     p=[]
-    for a in range (len(donne[:,0])):
-        m=np.mean(donne[:,a])
-        v=np.std(donne[:,a])
+    for a in range (donne.shape[1]):
+        m = np.mean(donne[:,a])
+        v = np.std(donne[:,a])
         if v==0:
             v=1
-        p=p+[m,v]
+        p = p + [m, v]
     return p
-    
+
     
   #------------------------------------L'algorithme Principale: échantillonage de Gibbs et processus de Dirichlet------------------------------#
   
