@@ -17,7 +17,7 @@ def chinese_restaurant_process(nbClient, alpha):
             numero_table.append(choisir_table)  
             print(numero_table)
     return numero_table
-    
+
     
 def Black_MacQueen_urn_Scheme(nbrBalls,alpha):
     if nbrBalls<=0:

@@ -23,7 +23,7 @@ def LikeHood_Log(p,data):
 
 def maj_of_Params(donne):
     p=[]
-    for a in range (len(donne[:,0]):
+    for a in range (len(donne[:,0])):
         m=np.mean(donne[:,a])
         v=np.std(donne[:,a])
         if v==0:
@@ -36,6 +36,9 @@ def maj_of_Params(donne):
   
   
 def Dirichlet_vs_Gibbs(data,alpha,iterations):
+    """
+        data should be a NxD matrix, where N is the number of observations and D is the dataset dimension.
+    """
     for e in range (iterations):
         clusters=len(data[:,0])*[0]
         nbrp=[]
